@@ -1,7 +1,7 @@
 public class Numbertest {
 
     private static void printNums() throws Exception {
-        long num = Long.MAX_VALUE;
+        long num = Integer.MAX_VALUE;
         System.out.println(getN(num));
     }
 
