@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codewars-kata.iml" filepath="$PROJECT_DIR$/.idea/modules/codewars-kata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codewars-kata_main.iml" filepath="$PROJECT_DIR$/.idea/modules/codewars-kata_main.iml" group="codewars-kata" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codewars-kata_test.iml" filepath="$PROJECT_DIR$/.idea/modules/codewars-kata_test.iml" group="codewars-kata" />
+    </modules>
+  </component>
+</project>
