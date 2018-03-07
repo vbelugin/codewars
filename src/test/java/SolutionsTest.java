@@ -5,6 +5,7 @@ import java.Solutions;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
+
 public class SolutionsTest {
     @Test
     public void findShort() {
@@ -107,6 +108,24 @@ public class SolutionsTest {
         assertEquals("Harald", Kata.declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Jerry"));
         System.out.println();
         assertEquals("Harald", Kata.declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Harald"));
+    }
+
+    @Test
+    public void test1() {
+        int[] array = new int[] {1, 2};
+        assertEquals("yes, ascending", Kata.isSortedAndHow(array));
+    }
+
+    @Test
+    public void test2() {
+        int[] array = new int[] {15, 7, 3, -8};
+        assertEquals("yes, descending", Kata.isSortedAndHow(array));
+    }
+
+    @Test
+    public void test3() {
+        int[] array = new int[] {4, 2, 30};
+        assertEquals("no", Kata.isSortedAndHow(array));
     }
 
 }

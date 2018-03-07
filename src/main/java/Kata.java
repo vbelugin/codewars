@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 public class Kata {
     public static String declareWinner(Fighter fighter1, Fighter fighter2, String firstAttacker) {
         int f1StrikesCount = fighter2.health/fighter1.damagePerAttack;
@@ -12,7 +14,6 @@ public class Kata {
         System.out.println(firstAttacker + ": " + f1StrikesCount +"/"+ f2StrikesCount);
 
         System.out.println(f1StrikesCount <= f2StrikesCount ? fighter1.name.equals(firstAttacker) ? fighter1.name : fighter2.name : fighter1.name);
-        // Your code goes here. Have fun!
         return f1StrikesCount <= f2StrikesCount ? fighter1.name.equals(firstAttacker) ? fighter1.name : fighter2.name : fighter1.name;
     }
 
@@ -31,5 +32,14 @@ public class Kata {
             solution[i++] = fighters[x][y];
         }
         return solution;
+    }
+
+    public static String isSortedAndHow(int[] array) {
+
+        return IntStream.range(0, array.length-1).allMatch(i -> array[i] <= array[i+1])
+                    ? "yes, ascending"
+               : IntStream.range(0, array.length-1).allMatch(i -> array[i] >= array[i+1])
+                    ? "yes, descending"
+                    : "no";
     }
 }
