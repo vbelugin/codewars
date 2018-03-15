@@ -1,13 +1,9 @@
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * For this exercise you will be strengthening your page-fu mastery. You will complete the PaginationHelper class, which is a utility class helpful for querying paging information related to an array.
@@ -31,8 +27,6 @@ import java.util.stream.Stream;
  https://www.codewars.com/kata/paginationhelper/train/java
  */
 
-// TODO: complete this object/class
-
 public class PaginationHelper<I> {
     private List<I> collection;
     private HashMap<Integer, List<I>> mappedCollection;
@@ -48,11 +42,14 @@ public class PaginationHelper<I> {
         mapCollection();
     }
 
+    /**
+     * Mapper takes collection and maps it to HashMap where key is pageIndex and value is List of items
+     */
     private void mapCollection() {
         mappedCollection = new HashMap<>();
 
         int counter = 0;
-        for (int i = 1; i <= pageCount(); i++) {
+        for (int i = 0; i < pageCount(); i++) {
             mappedCollection.put(i, collection.subList(counter, counter + itemsPerPage > collection.size() ? collection.size() : counter + itemsPerPage));
             counter += itemsPerPage;
         }
@@ -85,9 +82,11 @@ public class PaginationHelper<I> {
      * this method should return -1 for itemIndex values that are out of range
      */
     public int pageIndex(int itemIndex) {
-        for (Map.Entry<Integer, List<I>> entry : mappedCollection.entrySet()) {
-            if (entry.getValue().stream().anyMatch(x -> x.equals(collection.get(itemIndex)))) {
-                return entry.getKey();
+        if (itemIndex < collection.size() && itemIndex >= 0) {
+            for (Map.Entry<Integer, List<I>> entry : mappedCollection.entrySet()) {
+                if (entry.getValue().stream().anyMatch(x -> x.equals(collection.get(itemIndex)))) {
+                    return entry.getKey();
+                }
             }
         }
         return -1;

@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
 
 public class PaginationHelperTest {
     @Test
@@ -11,8 +10,7 @@ public class PaginationHelperTest {
 
         Assert.assertEquals(3, helper.pageCount());
         Assert.assertEquals(7, helper.itemCount());
-        Assert.assertEquals(1, helper.pageItemCount(3));
-        System.out.println(helper.pageCount());
-        System.out.println(helper.pageIndex(5));
+        Assert.assertEquals(1, helper.pageItemCount(2));
+        Assert.assertEquals(-1, helper.pageIndex(20));
     }
 }
