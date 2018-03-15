@@ -1,4 +1,12 @@
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -27,6 +35,7 @@ import java.util.stream.Stream;
 
 public class PaginationHelper<I> {
     private List<I> collection;
+    private HashMap<Integer, List<I>> mappedCollection;
     private int itemsPerPage;
 
     /**
@@ -36,6 +45,17 @@ public class PaginationHelper<I> {
     public PaginationHelper(List<I> collection, int itemsPerPage) {
         this.collection = collection;
         this.itemsPerPage = itemsPerPage;
+        mapCollection();
+    }
+
+    private void mapCollection() {
+        mappedCollection = new HashMap<>();
+
+        int counter = 0;
+        for (int i = 1; i <= pageCount(); i++) {
+            mappedCollection.put(i, collection.subList(counter, counter + itemsPerPage > collection.size() ? collection.size() : counter + itemsPerPage));
+            counter += itemsPerPage;
+        }
     }
 
     /**
@@ -49,7 +69,7 @@ public class PaginationHelper<I> {
      * returns the number of pages
      */
     public int pageCount() {
-        return collection.size() / itemsPerPage;
+        return BigDecimal.valueOf(collection.size()).divide(BigDecimal.valueOf(itemsPerPage), new MathContext(1, RoundingMode.UP)).intValue();
     }
 
     /**
@@ -57,7 +77,7 @@ public class PaginationHelper<I> {
      * this method should return -1 for pageIndex values that are out of range
      */
     public int pageItemCount(int pageIndex) {
-        return 0;
+        return mappedCollection.containsKey(pageIndex) ? mappedCollection.get(pageIndex).size() : -1;
     }
 
     /**
@@ -65,7 +85,11 @@ public class PaginationHelper<I> {
      * this method should return -1 for itemIndex values that are out of range
      */
     public int pageIndex(int itemIndex) {
-        return 0;
-
+        for (Map.Entry<Integer, List<I>> entry : mappedCollection.entrySet()) {
+            if (entry.getValue().stream().anyMatch(x -> x.equals(collection.get(itemIndex)))) {
+                return entry.getKey();
+            }
+        }
+        return -1;
     }
 }
