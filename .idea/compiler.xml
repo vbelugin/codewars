@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="6kyu_main" target="1.8" />
+      <module name="6kyu_test" target="1.8" />
       <module name="codewars-kata_main" target="1.8" />
       <module name="codewars-kata_test" target="1.8" />
     </bytecodeTargetLevel>
