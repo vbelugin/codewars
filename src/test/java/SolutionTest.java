@@ -1,3 +1,4 @@
+import kyu6.Solution;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -70,5 +71,12 @@ public class SolutionTest {
         String[] moves = new String[] { "up", "up", "up", "up" };
         String[] solution = new String[] { "Ryu", "Ryu", "Ryu", "Ryu" };
         assertArrayEquals(solution, Kata.streetFighterSelection(fighters, new int[] {0,0}, moves));
+    }
+
+    @Test
+    public void exampleTests() {
+        assertEquals(true, Solution.isAlt2("amazon"));
+        assertEquals(false, Solution.isAlt2("apple"));
+        assertEquals(true, Solution.isAlt2("banana"));
     }
 }
