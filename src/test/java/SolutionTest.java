@@ -1,5 +1,6 @@
 import kyu6.Dinglemouse;
 import kyu6.Solution;
+import kyu7.Printer;
 import kyu7.Progression;
 import org.junit.Test;
 
@@ -128,4 +129,11 @@ public class SolutionTest {
         assertEquals(0, count);
     }
     //==========End of The Freeway Game test block=========//
+
+    @Test
+    public void printerTest() {
+        System.out.println("printerError Fixed Tests");
+        String s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+        assertEquals("3/56", Printer.printerError(s));
+    }
 }
