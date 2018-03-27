@@ -1,3 +1,4 @@
+import Interviews.ArraysPractice;
 import kyu6.Dinglemouse;
 import kyu6.Solution;
 import kyu7.Printer;
@@ -135,5 +136,23 @@ public class SolutionTest {
         System.out.println("printerError Fixed Tests");
         String s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
         assertEquals("3/56", Printer.printerError(s));
+    }
+
+    @Test
+    public void firstDuplicate1() {
+        int[] arr = new int[]{2, 3, 3, 1, 5, 2};
+        assertEquals(3, ArraysPractice.firstDuplicate(arr));
+    }
+
+    @Test
+    public void firstDuplicate2() {
+        int[] arr = new int[]{2, 4, 3, 5, 1};
+        assertEquals(-1, ArraysPractice.firstDuplicate(arr));
+    }
+
+    @Test
+    public void firstDuplicate3() {
+        int[] arr = new int[]{8, 4, 6, 2, 6, 4, 7, 9, 5, 8};
+        assertEquals(6, ArraysPractice.firstDuplicate(arr));
     }
 }
