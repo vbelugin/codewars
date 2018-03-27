@@ -155,4 +155,10 @@ public class SolutionTest {
         int[] arr = new int[]{8, 4, 6, 2, 6, 4, 7, 9, 5, 8};
         assertEquals(6, ArraysPractice.firstDuplicate(arr));
     }
+
+    @Test
+    public void firstNotRepeat1() {
+        String s = "abacabad";
+        assertEquals('c', ArraysPractice.firstNotRepeatingCharacter(s));
+    }
 }
