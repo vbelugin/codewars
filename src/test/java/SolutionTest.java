@@ -161,4 +161,19 @@ public class SolutionTest {
         String s = "abacabad";
         assertEquals('c', ArraysPractice.firstNotRepeatingCharacter(s));
     }
+
+    @Test
+    public void rotateImage1() {
+        int[][] board   = new int[][] {
+                new int[] {1, 2, 3},
+                new int[] {4, 5, 6},
+                new int[] {7, 8, 9}};
+        int[][] solution = new int[][] {
+                new int[] {7, 4, 1},
+                new int[] {8, 5, 2},
+                new int[] {9, 6, 3}};
+        assertArrayEquals(solution, ArraysPractice.rotateImage(board));
+    }
+
+
 }
