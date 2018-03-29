@@ -5,8 +5,7 @@ import kyu7.Printer;
 import kyu7.Progression;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class SolutionTest {
     @Test
@@ -175,5 +174,50 @@ public class SolutionTest {
         assertArrayEquals(solution, ArraysPractice.rotateImage(board));
     }
 
+    @Test
+    public void sudoku2Test() {
+        char[][] grid = new char[][]{
+                new char[]{'.', '.', '.', '.', '2', '.', '.', '9', '.'},
+                new char[]{'.', '.', '.', '.', '6', '.', '.', '.', '.'},
+                new char[]{'7', '1', '.', '.', '7', '5', '.', '.', '.'},
+                new char[]{'.', '7', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '8', '3', '.', '.', '.'},
+                new char[]{'.', '.', '8', '.', '.', '7', '.', '6', '.'},
+                new char[]{'.', '.', '.', '.', '.', '2', '.', '.', '.'},
+                new char[]{'.', '1', '.', '2', '.', '.', '.', '.', '.'},
+                new char[]{'.', '2', '.', '.', '3', '.', '.', '.', '.'}};
+        assertFalse(ArraysPractice.sudoku2(grid));
+    }
+
+    @Test
+    public void sudoku2Test2() {
+        char[][] grid = new char[][]{
+                new char[]{'.', '.', '.', '1', '4', '.', '.', '2', '.'},
+                new char[]{'.', '.', '6', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '1', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '6', '7', '.', '.', '.', '.', '.', '9'},
+                new char[]{'.', '.', '.', '.', '.', '.', '8', '1', '.'},
+                new char[]{'.', '3', '.', '.', '.', '.', '.', '.', '6'},
+                new char[]{'.', '.', '.', '.', '.', '7', '.', '.', '.'},
+                new char[]{'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
+        assertTrue(ArraysPractice.sudoku2(grid));
+    }
+
+
+    @Test
+    public void sudoku2Test3() {
+        char[][] grid = new char[][]{
+                new char[]{'.', '.', '.', '.', '.', '.', '5', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'9', '3', '.', '.', '2', '.', '4', '.', '.'},
+                new char[]{'.', '.', '7', '.', '.', '.', '3', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '3', '4', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '3', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '5', '2', '.', '.'}};
+        assertFalse(ArraysPractice.sudoku2(grid));
+    }
 
 }

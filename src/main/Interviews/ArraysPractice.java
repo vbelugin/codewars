@@ -123,14 +123,127 @@ public class ArraysPractice {
     public static int[][] rotateImage(int[][] a) {
 
         for (int i = 0; i < a.length / 2; i++) {
-            for (int j = i; j < a.length-i-1; j++) { int rem = a[i][j];
+            for (int j = i; j < a.length-i-1; j++) {
+                int rem = a[i][j];
                 a[i][j] = a[a.length-j-1][i];
                 a[a.length-j-1][i] = a[a.length-i-1][a.length-j-1];
-
                 a[a.length-i-1][a.length-j-1] = a[j][a.length-i-1];
                 a[j][a.length-i-1] = rem;
             }
         }
         return a;
+    }
+
+    /**
+     * Sudoku is a number-placement puzzle. The objective is to fill a 9 × 9 grid with numbers in such a way that each column, each row, and each of the nine 3 × 3 sub-grids that compose the grid
+     * all contain all of the numbers from 1 to 9 one time.
+
+     Implement an algorithm that will check whether the given grid of numbers represents a valid Sudoku puzzle according to the layout rules described above.
+     Note that the puzzle represented by grid does not have to be solvable.
+
+     Example
+
+     For
+
+     grid = [
+     ['.', '.', '.', '1', '4', '.', '.', '2', '.'],
+     ['.', '.', '6', '.', '.', '.', '.', '.', '.'],
+     ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
+     ['.', '.', '1', '.', '.', '.', '.', '.', '.'],
+     ['.', '6', '7', '.', '.', '.', '.', '.', '9'],
+     ['.', '.', '.', '.', '.', '.', '8', '1', '.'],
+     ['.', '3', '.', '.', '.', '.', '.', '.', '6'],
+     ['.', '.', '.', '.', '.', '7', '.', '.', '.'],
+     ['.', '.', '.', '5', '.', '.', '.', '7', '.']]
+     the output should be
+     sudoku2(grid) = true;
+
+     For
+
+     grid = [
+     ['.', '.', '.', '.', '2', '.', '.', '9', '.'],
+     ['.', '.', '.', '.', '6', '.', '.', '.', '.'],
+     ['7', '1', '.', '.', '7', '5', '.', '.', '.'],
+     ['.', '7', '.', '.', '.', '.', '.', '.', '.'],
+     ['.', '.', '.', '.', '8', '3', '.', '.', '.'],
+     ['.', '.', '8', '.', '.', '7', '.', '6', '.'],
+     ['.', '.', '.', '.', '.', '2', '.', '.', '.'],
+     ['.', '1', '.', '2', '.', '.', '.', '.', '.'],
+     ['.', '2', '.', '.', '3', '.', '.', '.', '.']]
+     the output should be
+     sudoku2(grid) = false.
+
+     The given grid is not correct because there are two 1s in the second column. Each column, each row, and each 3 × 3 subgrid can only contain the numbers 1 through 9 one time.
+
+     Input/Output
+
+     [execution time limit] 3 seconds (java)
+
+     [input] array.array.char grid
+
+     A 9 × 9 array of characters, in which each character is either a digit from '1' to '9' or a period '.'.
+
+     [output] boolean
+
+     Return true if grid represents a valid Sudoku puzzle, otherwise return false.
+     */
+
+    public static boolean sudoku2(char[][] grid) {
+        boolean isValid = false;
+
+        if (grid.length == 9) {
+            if (!gridPartition(grid)) {
+                return false;
+            }
+        }
+
+        for (char[] line : grid) {
+            String str = new String(line).replaceAll("[^1-9]", "");
+            isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
+            if(!isValid) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < grid.length / 2; i++) {
+            for (int j = i; j < grid.length-i-1; j++) {
+                char rem = grid[i][j];
+                grid[i][j] = grid[grid.length-j-1][i];
+                grid[grid.length-j-1][i] = grid[grid.length-i-1][grid.length-j-1];
+                grid[grid.length-i-1][grid.length-j-1] = grid[j][grid.length-i-1];
+                grid[j][grid.length-i-1] = rem;
+            }
+        }
+
+        for (char[] line : grid) {
+            String str = new String(line).replaceAll("[^1-9]", "");
+            isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
+            if(!isValid) {
+                return false;
+            }
+        }
+
+        return isValid;
+    }
+
+    private static boolean gridPartition(char[][] grid) {
+        int subI = 0;
+        int subJ = 0;
+        do {
+            StringBuilder builder = new StringBuilder();
+            for (int i = subI, row = 0; row < 3; i++, row++) {
+                for (int j = subJ, col = 0; col < 3; j++, col++) {
+                    builder.append(grid[i][j]);
+                }
+            }
+            String str = builder.toString().replaceAll("[^1-9]", "");
+            boolean isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
+            if (!isValid) {
+                return false;
+            }
+            subI += subJ == 6 ? 3 : 0;
+            subJ += subJ == 6 ? -6: 3;
+        } while (subI <= 6);
+        return true;
     }
 }
