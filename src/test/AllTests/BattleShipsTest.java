@@ -1,4 +1,4 @@
-package java;
+package AllTests;
 
 import kyu4.BattleShips;
 import org.junit.Test;

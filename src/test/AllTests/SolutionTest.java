@@ -1,18 +1,22 @@
-package java;
+package AllTests;
 
 import Interviews.ArraysPractice;
 import kyu6.Dinglemouse;
 import kyu6.Solution;
 import kyu7.Printer;
 import kyu7.Progression;
+import org.junit.Assert;
 import org.junit.Test;
+
+import firstKatas.Fighter;
+import firstKatas.Kata;
 
 import static org.junit.Assert.*;
 
 public class SolutionTest {
     @Test
     public void basicTests() {
-        assertEquals("Lew", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Lew"));
+        Assert.assertEquals("Lew", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Lew"));
         System.out.println();
         assertEquals("Harry", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Harry"));
         System.out.println();
@@ -80,9 +84,9 @@ public class SolutionTest {
 
     @Test
     public void exampleTests() {
-        assertEquals(true, Solution.isAlt2("amazon"));
-        assertEquals(false, Solution.isAlt2("apple"));
-        assertEquals(true, Solution.isAlt2("banana"));
+        assertTrue(Solution.isAlt2("amazon"));
+        assertFalse(Solution.isAlt2("apple"));
+        assertTrue(Solution.isAlt2("banana"));
     }
 
     @Test
@@ -234,6 +238,34 @@ public class SolutionTest {
                 new char[]{'D', '7'},
                 new char[]{'R', '8'},
                 new char[]{'S', '9'}};
+        assertTrue(ArraysPractice.isCryptSolution(crypt, solution));
+    }
+
+    @Test
+    public void isCryptSolution2() {
+        String[] crypt = new String[]{"WASD", "IJKL", "AOPAS"};
+        char[][] solution = new char[][] {
+                new char[]{'W','2'},
+                new char[]{'A','0'},
+                new char[]{'S','4'},
+                new char[]{'D','1'},
+                new char[]{'I','5'},
+                new char[]{'J','8'},
+                new char[]{'K','6'},
+                new char[]{'L','3'},
+                new char[]{'O','7'},
+                new char[]{'P','9'}};
+        assertFalse(ArraysPractice.isCryptSolution(crypt, solution));
+    }
+
+    @Test
+    public void isCryptSolution3() {
+        String[] crypt = new String[]{"AAAAAAAAAAAAAA", "BBBBBBBBBBBBBB", "CCCCCCCCCCCCCC"};
+        char[][] solution = new char[][] {
+                new char[]{'A','1'},
+                new char[]{'B', '2'},
+                new char[]{'C', '3'},
+                };
         assertTrue(ArraysPractice.isCryptSolution(crypt, solution));
     }
 

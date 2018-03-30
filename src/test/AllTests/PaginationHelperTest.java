@@ -1,8 +1,9 @@
-package java;
+package AllTests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import firstKatas.PaginationHelper;
 import java.util.Arrays;
 
 public class PaginationHelperTest {

@@ -1,4 +1,4 @@
-package java;
+package firstKatas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.IntSummaryStatistics;

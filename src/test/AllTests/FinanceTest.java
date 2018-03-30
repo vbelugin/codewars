@@ -1,4 +1,4 @@
-package java;
+package AllTests;
 
 import kyu6.Finance;
 import org.junit.Test;

@@ -1,8 +1,11 @@
-package java;
+package AllTests;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import firstKatas.Book;
+import firstKatas.ILibrary;
 
 public class LibraryTest {
     private ILibrary library;

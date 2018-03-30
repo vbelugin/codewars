@@ -1,6 +1,5 @@
 package Interviews;
 
-import java.math.BigInteger;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -194,21 +193,14 @@ public class ArraysPractice {
      */
 
     public static boolean sudoku2(char[][] grid) {
-        boolean isValid = false;
-
         if (grid.length == 9) {
             if (!gridPartition(grid)) {
                 return false;
             }
         }
 
-        for (char[] line : grid) {
-            String str = new String(line).replaceAll("[^1-9]", "");
-            isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
-            if(!isValid) {
-                return false;
-            }
-        }
+        boolean isValid = checkValid(grid);
+        if (!isValid) {return false;}
 
         for (int i = 0; i < grid.length / 2; i++) {
             for (int j = i; j < grid.length-i-1; j++) {
@@ -220,15 +212,18 @@ public class ArraysPractice {
             }
         }
 
+        return checkValid(grid);
+    }
+
+    private static boolean checkValid(char[][] grid) {
         for (char[] line : grid) {
             String str = new String(line).replaceAll("[^1-9]", "");
-            isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
+            boolean isValid = str.chars().boxed().allMatch(c -> str.indexOf(c) == str.lastIndexOf(c));
             if(!isValid) {
                 return false;
             }
         }
-
-        return isValid;
+        return true;
     }
 
     private static boolean gridPartition(char[][] grid) {
@@ -333,7 +328,6 @@ public class ArraysPractice {
                 return false;
             }
         }
-        System.out.println(BigInteger.valueOf(Integer.parseInt(crypt[0])));
-        return Long.getLong(crypt[0]) + Long.getLong(crypt[1]) == Long.getLong(crypt[2]);
+        return Long.parseLong(crypt[0]) + Long.parseLong(crypt[1]) == Long.parseLong(crypt[2]);
     }
 }

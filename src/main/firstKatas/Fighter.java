@@ -1,6 +1,6 @@
-package java;
+package firstKatas;
 
-class Fighter {
+public class Fighter {
     public String name;
     public int health, damagePerAttack;
 

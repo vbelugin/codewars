@@ -1,6 +1,11 @@
-package java;
+package AllTests;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import firstKatas.Fighter;
+import firstKatas.Kata;
+import firstKatas.Solutions;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -9,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class SolutionsTest {
     @Test
     public void findShort() {
-        assertEquals(3, Solutions.findShort("bitcoin take over the world maybe who knows perhaps"));
+        Assert.assertEquals(3, Solutions.findShort("bitcoin take over the world maybe who knows perhaps"));
         assertEquals(3, Solutions.findShort("turns out random test cases are easier than writing out basic ones"));
     }
 
@@ -97,7 +102,7 @@ public class SolutionsTest {
 
     @Test
     public void basicTests() {
-        assertEquals("Lew", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Lew"));
+        Assert.assertEquals("Lew", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Lew"));
         System.out.println();
         assertEquals("Harry", Kata.declareWinner(new Fighter("Lew", 10, 2),new Fighter("Harry", 5, 4), "Harry"));
         System.out.println();

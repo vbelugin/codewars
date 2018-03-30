@@ -1,4 +1,4 @@
-package java;
+package firstKatas;
 
 //Реализуйте класс  с использованием java коллекций по следующему интерфейсу:
 public class Book {

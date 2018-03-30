@@ -1,4 +1,4 @@
-package java;
+package firstKatas;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
