@@ -1,3 +1,5 @@
+package java;
+
 import kyu4.BattleShips;
 import org.junit.Test;
 

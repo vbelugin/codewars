@@ -2,6 +2,7 @@ buildscript {
     ext.kotlin_version = '1.2.30'
 
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -18,12 +19,26 @@ apply plugin: 'kotlin'
 sourceCompatibility = 1.8
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test']
+        }
+    }
 }
 
 compileKotlin {

@@ -1,3 +1,5 @@
+package java;
+
 import Interviews.ArraysPractice;
 import kyu6.Dinglemouse;
 import kyu6.Solution;

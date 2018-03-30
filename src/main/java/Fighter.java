@@ -1,3 +1,5 @@
+package java;
+
 class Fighter {
     public String name;
     public int health, damagePerAttack;

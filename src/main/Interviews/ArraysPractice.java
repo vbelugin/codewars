@@ -1,5 +1,6 @@
 package Interviews;
 
+import java.math.BigInteger;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -332,6 +333,7 @@ public class ArraysPractice {
                 return false;
             }
         }
-        return Integer.parseInt(crypt[0]) + Integer.parseInt(crypt[1]) == Integer.parseInt(crypt[2]);
+        System.out.println(BigInteger.valueOf(Integer.parseInt(crypt[0])));
+        return Long.getLong(crypt[0]) + Long.getLong(crypt[1]) == Long.getLong(crypt[2]);
     }
 }

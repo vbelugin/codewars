@@ -1,3 +1,5 @@
+package java;
+
 import kyu6.Finance;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-import org.junit.Test;
+package java;
 
-import java.Solutions;
+import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

@@ -1,3 +1,5 @@
+package java;
+
 import kyu5.Fighter2;
 import org.junit.Test;
 

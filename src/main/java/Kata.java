@@ -1,3 +1,5 @@
+package java;
+
 import java.util.stream.IntStream;
 
 public class Kata {
