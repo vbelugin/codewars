@@ -133,4 +133,10 @@ public class SolutionsTest {
         assertEquals("no", Kata.isSortedAndHow(array));
     }
 
+    @Test
+    public void testSum() {
+        long n = 236236;
+        assertEquals(22, Kata.sumInts(n));
+    }
+
 }

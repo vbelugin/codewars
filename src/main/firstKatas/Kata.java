@@ -44,4 +44,8 @@ public class Kata {
                     ? "yes, descending"
                     : "no";
     }
+
+    public static int sumInts(long n) {
+        return String.valueOf(n).chars().map(i -> Integer.parseInt(String.valueOf((char) i))).boxed().reduce(0, Integer::sum);
+    }
 }
