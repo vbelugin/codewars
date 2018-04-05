@@ -1,5 +1,7 @@
 package Interviews;
 
+import java.util.ArrayList;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -329,5 +331,17 @@ public class ArraysPractice {
             }
         }
         return Long.parseLong(crypt[0]) + Long.parseLong(crypt[1]) == Long.parseLong(crypt[2]);
+    }
+
+    public static ArrayList<Integer> removeEverySecond(ArrayList<Integer> l) {
+        ListIterator<Integer> list = l.listIterator();
+
+        while (list.hasNext()) {
+            list.next();
+            list.next();
+            list.remove();
+        }
+
+        return l;
     }
 }

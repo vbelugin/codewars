@@ -1,6 +1,8 @@
 package AllTests;
 
 import Interviews.ArraysPractice;
+import firstKatas.Fighter;
+import firstKatas.Kata;
 import kyu6.Dinglemouse;
 import kyu6.Solution;
 import kyu7.Printer;
@@ -8,8 +10,8 @@ import kyu7.Progression;
 import org.junit.Assert;
 import org.junit.Test;
 
-import firstKatas.Fighter;
-import firstKatas.Kata;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -267,6 +269,13 @@ public class SolutionTest {
                 new char[]{'C', '3'},
                 };
         assertTrue(ArraysPractice.isCryptSolution(crypt, solution));
+    }
+
+    @Test
+    public void removeEverySecondTest() {
+        ArrayList<Integer> sd = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        ArrayList<Integer> solution = new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
+        assertEquals(solution, ArraysPractice.removeEverySecond(sd));
     }
 
 }
