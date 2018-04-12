@@ -3,6 +3,7 @@ package AllTests;
 import Interviews.ArraysPractice;
 import firstKatas.Fighter;
 import firstKatas.Kata;
+import firstKatas.Percentile;
 import kyu6.Dinglemouse;
 import kyu6.Solution;
 import kyu7.Printer;
@@ -276,6 +277,18 @@ public class SolutionTest {
         ArrayList<Integer> sd = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         ArrayList<Integer> solution = new ArrayList<>(Arrays.asList(1, 3, 5, 7, 9));
         assertEquals(solution, ArraysPractice.removeEverySecond(sd));
+    }
+
+    @Test
+    public void percentileTest90() {
+        ArrayList<Integer> entries = new ArrayList<>(Arrays.asList(69, 43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78, 79, 85, 87, 88, 89, 93, 95, 96, 98, 99, 99));
+        assertEquals(98, Percentile.getPercentile(entries, 90));
+    }
+
+    @Test
+    public void percentileTest20() {
+        ArrayList<Integer> entries = new ArrayList<>(Arrays.asList(43, 54, 56, 61, 62, 66, 68, 69, 69, 70, 71, 72, 77, 78, 79, 85, 87, 88, 89, 93, 95, 96, 98, 99, 99));
+        assertEquals(64, Percentile.getPercentile(entries, 20));
     }
 
 }

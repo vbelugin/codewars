@@ -13,7 +13,7 @@ public class LinkedListsPractice {
      *
      */
 
-    ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
+    public static ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
         ListNode<Integer> node = l;
         ListNode<Integer> prev = null;
         while(node != null) {
@@ -60,7 +60,8 @@ public class LinkedListsPractice {
      * Return true if l is a palindrome, otherwise return false.
      */
 
-    boolean isListPalindrome(ListNode<Integer> l) {
+    public static boolean isListPalindrome(ListNode<Integer> l) {
+
         return true;
     }
 }
