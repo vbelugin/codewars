@@ -291,4 +291,32 @@ public class SolutionTest {
         assertEquals(64, Percentile.getPercentile(entries, 20));
     }
 
+    @Test
+    public void percentileTestChrome() {
+        ArrayList<Double> firstLoad = new ArrayList<>(Arrays.asList(7.88, 7.05, 10.67, 8.6, 11.28, 5.1, 5.89, 5.92, 4.62, 10.8));
+        ArrayList<Double> cachedLoad = new ArrayList<>(Arrays.asList(3.49, 2.3, 2.51, 1.92, 2.23, 2.44, 2.36, 2.22, 2.23, 2.11));
+
+        System.out.println("First load: Chrome");
+        System.out.println("90th Percentile: " + Percentile.getPercentile(90, firstLoad));
+        System.out.println("95th Percentile: " + Percentile.getPercentile(95, firstLoad));
+
+        System.out.println("Cached load: Chrome");
+        System.out.println("90th Percentile: " + Percentile.getPercentile(90, cachedLoad));
+        System.out.println("95th Percentile: " + Percentile.getPercentile(95, cachedLoad));
+    }
+
+    @Test
+    public void percentileTestFirefox() {
+        ArrayList<Double> firstLoad = new ArrayList<>(Arrays.asList(10.65, 5.26, 8.41, 5.58, 6.64, 5.17, 5.18, 6.42, 7.92, 5.8));
+        ArrayList<Double> cachedLoad = new ArrayList<>(Arrays.asList(3.63, 3.19, 3.54, 3.3, 3.31, 3.43, 4.67, 3.05, 3.54, 3.24));
+
+        System.out.println("First load: Firefox");
+        System.out.println("90th Percentile: " + Percentile.getPercentile(90, firstLoad));
+        System.out.println("95th Percentile: " + Percentile.getPercentile(95, firstLoad));
+
+        System.out.println("Cached load: Firefox");
+        System.out.println("90th Percentile: " + Percentile.getPercentile(90, cachedLoad));
+        System.out.println("95th Percentile: " + Percentile.getPercentile(95, cachedLoad));
+    }
+
 }
