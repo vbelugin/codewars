@@ -60,7 +60,15 @@ public class LinkedListsPractice {
      * Return true if l is a palindrome, otherwise return false.
      */
 
-    public static boolean isListPalindrome(ListNode<Integer> l) {
+    public boolean isListPalindrome(ListNode<Integer> l) {
+        ListNode<Integer> head = l;
+        ListNode<Integer> end = head;
+        ListNode<Integer> mid;
+
+        while (end != null) {
+            end = l.next.next;
+            mid = l.next;
+        }
 
         return true;
     }
